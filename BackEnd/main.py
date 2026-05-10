@@ -9,6 +9,8 @@ from database.User import User
 from schemas.auth import UserRegister, UserResponse
 from dependencies.dependencies import SessionDep
 
+from fastapi.middleware.cors import CORSMiddleware
+
 def create_db_and_tables():
  SQLModel.metadata.create_all(engine)
 
@@ -18,6 +20,12 @@ async def lifespan(app: FastAPI):
  yield
 
 app = FastAPI(lifespan=lifespan)
+
+origins = [
+    "http://localhost:5173"
+]
+
+app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 
 password_hash = PasswordHash.recommended()
 
