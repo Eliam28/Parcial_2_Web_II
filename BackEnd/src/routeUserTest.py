@@ -15,7 +15,8 @@ def get_all(session: SessionDep):
         result.append({
             "id": user.id,
             "userName": user.userName,
-            "name": user.name,
+            "name": user.full_name,
+            "email": user.email,
             "password": user.password
         })
     return result
