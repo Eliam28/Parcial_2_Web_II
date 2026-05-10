@@ -3,6 +3,8 @@ from sqlmodel import SQLModel
 from database.db import engine
 from contextlib import asynccontextmanager
 
+from src.routeUserTest import router as userTestRouter
+
 def create_db_and_tables():
  SQLModel.metadata.create_all(engine)
 
@@ -13,6 +15,9 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+app.include_router(userTestRouter)
+
 @app.get("/")
 def saludo():
  return {"saludo":"hola"}
+
