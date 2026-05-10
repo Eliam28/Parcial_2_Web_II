@@ -61,7 +61,17 @@ a {
 }
 
 .errorMessage {
-  background-color: #f2dede;
-  color: #a94442;
+  background-color: #f8d7da;
+  color: #842029;
   padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.successMessage {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
