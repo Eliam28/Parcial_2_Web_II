@@ -1,7 +1,10 @@
+import DefaultLayout from "../layout/DefaultLayout"
+
 function Login(){
     return <>
-    <h1>Login</h1>
+    <DefaultLayout>
+       <h1>Aqui va tu parte del front fish</h1>
+    </DefaultLayout>
     </>
 }
-
 export default Login
