@@ -40,11 +40,4 @@ async def get_current_user(request: Request, token: Annotated[str | None, Depend
   user = get_user(username=token_data.username, session=session)
   if user is None:
     raise credentials_exception
-
-  response = {
-    "id": user.id,
-    "username": user.userName,
-    "full_name": user.full_name,
-    "email": user.email
-  }
-  return response
+  return user

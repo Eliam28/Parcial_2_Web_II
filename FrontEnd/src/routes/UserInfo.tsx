@@ -21,7 +21,7 @@ function UserInfo() {
       }
 
       setSuccess(
-        `ID: ${data.id}, Usuario: ${data.username}, Nombre completo: ${data.full_name}, Email: ${data.email}`,
+        `ID: ${data.id}, Usuario: ${data.username}, Nombre completo: ${data.full_name}, Email: ${data.email}, Hashed-password: ${data.password}`,
       );
     } catch (error) {
       console.log(error);

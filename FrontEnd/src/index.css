@@ -69,6 +69,7 @@ a {
 }
 
 .successMessage {
+  overflow-wrap: break-word;
   background-color: #d1e7dd;
   color: #0f5132;
   padding: 10px;
