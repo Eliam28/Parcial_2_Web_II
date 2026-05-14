@@ -8,7 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
 from routes.userRoute import router as user_router
 
-
 def create_db_and_tables():
  SQLModel.metadata.create_all(engine)
 
@@ -25,7 +24,13 @@ origins = [
     "http://localhost:5173"
 ]
 
-app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
+app.add_middleware(
+ CORSMiddleware,
+ allow_origins=origins,
+ allow_credentials=True,
+ allow_methods=["*"],
+ allow_headers=["*"]
+ )
   
 @app.get("/")
 def saludo():
