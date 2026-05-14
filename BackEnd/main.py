@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
+from routes.userRoute import router as user_router
 
 
 def create_db_and_tables():
@@ -31,3 +32,4 @@ def saludo():
  return {"saludo":"hola"}
 
 app.include_router(auth_router)
+app.include_router(user_router)
