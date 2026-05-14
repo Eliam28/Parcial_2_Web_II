@@ -22,7 +22,7 @@ function Register() {
     }
 
     if (fullName.length < 3) {
-      setError("El nombre completo  debe tener mínimo 3 caracteres");
+      setError("El nombre completo debe tener mínimo 3 caracteres");
       return;
     }
 
