@@ -3,16 +3,17 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 import jwt
 from jwt.exceptions import InvalidTokenError
+from sqlmodel import select
 from config import SECRET_KEY, ALGORITHM
-from pydantic import BaseModel
 from dependencies.dependencies import SessionDep
 from database.User import User
 from schemas.auth import TokenData
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 def get_user(username: str, session: SessionDep):
-  user = session.select(User).where(User.userName == username).first()
+  query = select(User).where(User.userName == username)
+  user = session.exec(query).first()
   return user
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], session: SessionDep):
