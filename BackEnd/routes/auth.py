@@ -42,6 +42,6 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], sess
   access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
   access_token = create_acces_token(data={"sub": user.userName}, expires_delta=access_token_expires)
 
-  response.set_cookie(key="access_token", value=access_token,httponly=True, max_age=180,secure=False,samesite="lax")
+  response.set_cookie(key="access_token", value=access_token,httponly=True, max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60,secure=False,samesite="lax")
 
   return Token(access_token=access_token, token_type="bearer")
