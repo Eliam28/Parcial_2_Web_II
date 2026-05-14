@@ -105,7 +105,7 @@ function Register() {
       <label>Contraseña</label>
       <input
         required
-        type="text"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
