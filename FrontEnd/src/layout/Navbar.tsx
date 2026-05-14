@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 
-interface DefaultLayoutProps {
-  children: React.ReactNode;
-}
-
 function Navbar() {
   return (
     <nav>
