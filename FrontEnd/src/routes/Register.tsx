@@ -87,7 +87,7 @@ function Register(){
             <input required type="text"  value={email} onChange={(e)=> setEmail(e.target.value)}/>
 
             <label>Contraseña</label>
-            <input required type="text" value={password} onChange={(e)=> setPassword(e.target.value)} />
+            <input required type="password" value={password} onChange={(e)=> setPassword(e.target.value)} />
 
             <button>Registrar</button>
 
