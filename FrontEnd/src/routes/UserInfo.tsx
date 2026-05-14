@@ -6,7 +6,7 @@ function UserInfo() {
 
   async function fetchUserInfo() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/users/me", {
+      const response = await fetch("http://localhost:8000/users/me", {
         method: "GET",
         credentials: "include",
       });
@@ -21,11 +21,13 @@ function UserInfo() {
       }
 
       setSuccess(
-        `Usuario: ${data.userName}, Nombre completo: ${data.full_name}, Email: ${data.email}`,
+        `ID: ${data.id}, Usuario: ${data.username}, Nombre completo: ${data.full_name}, Email: ${data.email}`,
       );
     } catch (error) {
       console.log(error);
-      setError("Error al obtener la información del usuario");
+      setError(
+        String(error instanceof Error ? error.message : "Error desconocido"),
+      );
     }
   }
 
